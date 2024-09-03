@@ -1,0 +1,13 @@
+ 
+main {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.accordion {
+    padding: 20px 0;
+}
+
+.input-group {
+    padding: 5px 0;
+}
