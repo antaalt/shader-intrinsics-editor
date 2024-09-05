@@ -1,5 +1,5 @@
  
-main {
+.Editor {
     width: 1000px;
     margin: 0 auto;
 }
@@ -11,3 +11,9 @@ main {
 .input-group {
     padding: 5px 0;
 }
+/* Only for signature parameters accordions */
+.accordion .accordion .accordion-button:not(.collapsed) {
+    background-color: #1d0c33 !important;
+    color: #c39ff1;
+}
+  
