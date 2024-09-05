@@ -51,3 +51,10 @@ export type ShaderSymbolList = {
     functions: ShaderSymbol[],
     keywords: ShaderSymbol[],
 }
+
+export function formatSignature(label: string, signature : ShaderSignature) {
+    let parameters = signature.parameters.map(e => {
+        return `${e.ty} ${e.label}`;
+    });
+    return `${signature.returnType} ${label}(${parameters.join(", ")})`;
+}

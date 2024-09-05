@@ -23,31 +23,37 @@ function supportTypeField(type: ShaderSymbolType) {
 }
 
 function Symbol(props: SymbolProps) {
-  const handleLabelChange = (e : any, index: number) => {
-    props.handleSymbolChange(index, {
+  const handleLabelChange = (e : any) => {
+    props.handleSymbolChange(props.index, {
         ...props.symbol,
         label: e.target.value,
     });
   };
-  const handleDescriptionChange = (e : any, index: number) => {
-    props.handleSymbolChange(index, {
+  const handleDescriptionChange = (e : any) => {
+    props.handleSymbolChange(props.index, {
         ...props.symbol,
         description: e.target.value,
+    });
+  };
+  const handleVersionChange = (e : any) => {
+    props.handleSymbolChange(props.index, {
+        ...props.symbol,
+        version: e.target.value,
     });
   };
   return (
     <div>
         <InputGroup>
             <InputGroup.Text>Label</InputGroup.Text>
-            <Form.Control aria-label="Label" defaultValue={props.symbol.label} onChange={e => handleLabelChange(e, props.index)}/>
+            <Form.Control aria-label="Label" defaultValue={props.symbol.label} onChange={handleLabelChange}/>
         </InputGroup>
         <InputGroup>
             <InputGroup.Text>Description</InputGroup.Text>
-            <Form.Control as="textarea" aria-label="Description" defaultValue={props.symbol.description}  onChange={e => handleDescriptionChange(e, props.index)}/>
+            <Form.Control as="textarea" aria-label="Description" defaultValue={props.symbol.description} onChange={handleDescriptionChange}/>
         </InputGroup>
         <InputGroup>
             <InputGroup.Text>Version</InputGroup.Text>
-            <Form.Control aria-label="Version" defaultValue={props.symbol.version}/>
+            <Form.Control aria-label="Version" defaultValue={props.symbol.version} onChange={handleVersionChange}/>
         </InputGroup>
         <InputGroup>
             <InputGroup.Text>Link</InputGroup.Text>

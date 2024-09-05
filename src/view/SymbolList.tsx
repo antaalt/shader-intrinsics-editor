@@ -1,5 +1,5 @@
 import { Accordion, Button, Form, InputGroup } from 'react-bootstrap';
-import { ShaderSymbol, ShaderSymbolType } from './Shader';
+import { formatSignature, ShaderSymbol, ShaderSymbolType } from './Shader';
 import Symbol from './Symbol';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -39,7 +39,7 @@ function SymbolList(props: SymbolListProps) {
             {props.symbolList.length === 0 ? <p>No symbol available</p> : props.symbolList?.map((value, index) => {
                 return (
                     <Accordion.Item key={value.id} eventKey={index + ''}>
-                        <Accordion.Header>{value.label}</Accordion.Header>
+                        <Accordion.Header>{value.signature !== undefined && value.signature !== null ? formatSignature(value.label, value.signature) : value.label}</Accordion.Header>
                         <Accordion.Body>
                             <Symbol index={index} type={props.type} symbol={props.symbolList[index]} handleSymbolChange={handleSymbolChange}/>
                             
